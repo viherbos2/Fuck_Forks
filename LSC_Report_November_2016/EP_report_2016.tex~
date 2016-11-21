@@ -1,0 +1,78 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage[siunitx, american, smartlabels, cute inductors, europeanvoltages]{circuitikz}
+
+
+\title{NEXT - Energy Plane Status Report }
+\author{Vicente Herrero, Juanjo Gomez-Cadenas, Raul Esteve, Vicente Álvarez}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\begin{abstract}
+Front End Electronics (FEE) and complementary Digital Signal Processing (DSP) techniques will be described in this report. Also data measurements taken in order to verify FEE behavior and validate DSP techniques will be presented. Finally some conclusions will be introduced as well as possible future work lines
+\end{abstract}
+
+\chapter{Grounded Cathode PMT Connection and its Consequences}
+\par In order to simplify Energy Plane construction and integration in the vessel structure, PMT enclosure and thus its cathode connection are directly connected to the vessel copper mass. This fact implies that a \textbf{PMT grounded cathode connection scheme} must be used since the whole structure must be connected to earth for electrical safety reasons.
+
+
+
+\section{Grounded Cathode PMT Connection}
+
+\par In such a configuration the anode output must be AC coupled through an isolation capacitor since anode output DC voltage equals the high voltage (HV) being applied to the PMT (fig. \ref{fig:grounded_cathode}). As a consequence the AC coupling capacitor must be able to withstand the HV needed to provide the required gain in the PMT (typically from 1000 V to 2000 V). 
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=\textwidth]{./figures/grounded_cathode.pdf}
+    \caption{Grounded Cathode PMT connection scheme}
+    \label{fig:grounded_cathode}
+  \end{center}
+\end{figure}
+
+Moreover the use of an AC coupling scheme implies a low pass filter (LPF) will be created. Such a filter blocks or attenuates a range of frequencies from DC up to a certain frequency \textit{(cutoff frequency)}. Figure \ref{fig:GC_equivalent_circuit} shows the electrical equivalent circuit of this connection scheme as well as its frequency response whose Laplace transfer function is shown in eq. \ref{eq:1}
+
+
+\begin{figure}
+\begin{center}$
+\begin{array}{cc}
+  \includegraphics[width=0.5\textwidth]{./figures/FEE_simple.png} &
+  \includegraphics[width=0.5\textwidth]{./figures/FEEsimple_freq_response.pdf}
+\end{array}$
+\end{center}
+\caption{Grounded Cathode Equivalent Circuit and Frequency response}
+\label{fig:GC_equivalent_circuit}
+\end{figure}
+
+
+\begin{equation}
+\frac{v_O}{i_I}=A\frac{Z_{in}R_1}{Z_{in}+R_1}\frac{(R_1+Z_{in})Cs}{1+(R_1+Z_{in})Cs}
+\label{eq:1}
+\end{equation}
+
+\begin{equation}
+f_{cutoff}=\frac{1}{(R_1+Z_{in})C.2\pi}
+\end{equation}
+
+From the time domain point of view, the AC coupling effect wipes out the DC component on the signal. This fact introduces a distortion that makes difficult to get an estimation of the energy of a complex signal based on its area. Figure \ref{fig:pulses} shows the AC coupling effect on a single pulse and a complex signal. In the latter case the total negative and positive area computation predicts a lower number of pulses (2.28 instead of 3)
+
+\begin{figure}
+\begin{center}$
+\begin{array}{cc}
+  \includegraphics[width=0.5\textwidth]{./figures/pulse.pdf} &
+  \includegraphics[width=0.5\textwidth]{./figures/pulses.pdf}
+\end{array}$
+\end{center}
+\caption{AC coupling effect on Energy Estimation}
+\label{fig:pulses}
+\end{figure}
+
+
+
+
+\end{document}

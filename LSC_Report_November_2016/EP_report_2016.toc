@@ -1,0 +1,13 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Grounded Cathode PMT Connection and its Consequences}{1}
+\contentsline {section}{\numberline {1.1}Grounded Cathode PMT Connection}{1}
+\contentsline {subsection}{\numberline {1.1.1}High $\tau $ constant value solution}{3}
+\contentsline {chapter}{\numberline {2}Front End Electronics Design}{6}
+\contentsline {section}{\numberline {2.1}Digital Baseline Restoring alternative}{6}
+\contentsline {section}{\numberline {2.2}Noise Measurements}{9}
+\contentsline {section}{\numberline {2.3}FEE modeling for simulation}{10}
+\contentsline {subsection}{\numberline {2.3.1}Simple FEE model}{10}
+\contentsline {subsection}{\numberline {2.3.2}Full FEE model}{11}
+\contentsline {section}{\numberline {2.4}Digital Baseline Restoration}{13}
+\contentsline {subsection}{\numberline {2.4.1}Noise effects on BLR}{15}
+\contentsline {section}{\numberline {2.5}Accumulator Based Control BLR}{15}
